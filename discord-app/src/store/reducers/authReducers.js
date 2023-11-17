@@ -7,7 +7,7 @@ const reducers = (state = initialState, action) => {
     case "DUMMY":
       return {
         ...state,
-        userDetails: action.payload,
+        // userDetails: action.payload,
       };
     default:
       return state;
