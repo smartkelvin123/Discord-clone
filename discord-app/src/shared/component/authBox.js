@@ -8,7 +8,7 @@ const BoxWrapper = styled("div")({
   alignItems: "center",
   height: "100vh",
   width: "100%",
-  backgroundColor: "rgba(0,0,0,0.5)",
+  backgroundColor: "#5865f2",
 });
 
 const AuthBox = (props) => {
@@ -24,7 +24,7 @@ const AuthBox = (props) => {
             padding: "20px",
             boxShadow: "0 2px 10px 0 rgb (0 0 0 /20%)",
             display: "flex",
-            justifyContent: "center",
+            justifyContent: "flex-start", // Align items to the start (top)
             alignItems: "center",
             flexDirection: "column",
           }}
