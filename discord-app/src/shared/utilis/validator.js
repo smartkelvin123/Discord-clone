@@ -15,3 +15,15 @@ const validateEmail = (email) => {
 
   return emailPattern.test(email);
 };
+
+export const ValidateRegisterForm = ({ email, password, username }) => {
+  const isEmailValid = validateEmail(email);
+  const isPasswordValid = ValidatePassword(password);
+  const isUsernameValid = ValidateUsername(username);
+
+  return isEmailValid && isPasswordValid && isUsernameValid;
+};
+
+const ValidateUsername = (username) => {
+  return username.length > 2 && username.length < 12;
+};

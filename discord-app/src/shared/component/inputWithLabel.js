@@ -27,11 +27,12 @@ const Input = styled("input")({
   padding: "0 5px",
 });
 const InputWithLabel = (props) => {
+  const { value, type, setValue, placeholder, label } = props;
+
   const handleChangeValue = (event) => {
     setValue(event.target.value);
   };
 
-  const { value, type, setValue, placeholder, label } = props;
   return (
     <Wrapper>
       <Label>{label}</Label>
