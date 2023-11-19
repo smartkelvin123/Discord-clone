@@ -17,28 +17,31 @@ const setUserDetails = (userDetails) => ({
   payload: userDetails,
 });
 
-const login = (userDetails, history) => {
+const login = ({ userDetails, navigate }) => {
   return async (dispatch) => {
-    const response = api.login(userDetails);
+    const response = await api.login(userDetails);
+    console.log(response);
     if (response.error) {
+      // handle error
     } else {
       const { userDetails } = response?.data;
-      localStorage.setItem("user", JSON.stringify("userDetails"));
+      localStorage.setItem("user", JSON.stringify(userDetails));
       dispatch(setUserDetails(userDetails));
-      history.push("/dashBoard");
+      navigate("/dashBoard");
     }
   };
 };
 
-const register = (userDetails, history) => {
+const register = ({ userDetails, navigate }) => {
   return async (dispatch) => {
-    const response = api.register(userDetails);
+    const response = await api.register(userDetails);
+    console.log(response);
     if (response.error) {
     } else {
       const { userDetails } = response?.data;
-      localStorage.setItem("user", JSON.stringify("userDetails"));
+      localStorage.setItem("user", JSON.stringify(userDetails));
       dispatch(setUserDetails(userDetails));
-      history.push("/dashBoard");
+      navigate("/dashBoard");
     }
   };
 };
