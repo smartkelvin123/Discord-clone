@@ -3,10 +3,10 @@ const alertActions = {
   CLOSE_ALERT_MESSAGE: "ALERT_HIDE_ALERT_MESSAGE",
 };
 
-export const getActions = (dispath) => {
+export const getActions = (dispatch) => {
   return {
-    openAlertMessage: (content = dispath(openAlertMessage(content))),
-    closeAlertMessage: (content = dispath(closeAlertMessage())),
+    openAlertMessage: (content) => dispatch(openAlertMessage(content)),
+    closeAlertMessage: () => dispatch(closeAlertMessage()),
   };
 };
 
