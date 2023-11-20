@@ -21,9 +21,10 @@ const Notification = ({
   );
 };
 
-const mapStoreStateToProps = (alert) => {
+const mapStoreStateToProps = (state) => {
   return {
-    ...alert,
+    showAlertMessage: state.alert.showAlertMessage,
+    alertMessageContent: state.alert.alertMessageContent,
   };
 };
 
