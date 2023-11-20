@@ -11,13 +11,20 @@ export const getActions = (dispatch) => {
 };
 
 export const openAlertMessage = (content) => {
-  return {
-    type: alertActions.OPEN_ALERT_MESSAGE,
-    payload: content,
+  return (dispatch) => {
+    dispatch({
+      type: alertActions.OPEN_ALERT_MESSAGE,
+      payload: content,
+    });
+
+    setTimeout(() => {
+      dispatch(closeAlertMessage());
+    }, 6000);
   };
 };
 
 export const closeAlertMessage = () => {
+  console.log("Closing alert message");
   return {
     type: alertActions.CLOSE_ALERT_MESSAGE,
   };
