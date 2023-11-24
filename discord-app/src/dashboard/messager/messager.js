@@ -2,15 +2,14 @@ import React from "react";
 import { styled } from "@mui/material";
 
 const Maincontainer = styled("div")({
-  width: "224px",
-  height: "100%",
+  flexGrow: 1,
+  backgroundColor: "#36393f",
+
+  marginTop: "48px",
   display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
-  backgroundColor: "#2F3136",
 });
 
-const FriendsSideBar = () => {
+const Messager = () => {
   return (
     <div>
       <Maincontainer>
@@ -20,4 +19,4 @@ const FriendsSideBar = () => {
   );
 };
 
-export default FriendsSideBar;
+export default Messager;

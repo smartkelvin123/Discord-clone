@@ -5,14 +5,12 @@ const Maincontainer = styled("div")({
   width: "72px",
   height: "100%",
   display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
   flexDirection: "column",
+  alignItems: "center",
   backgroundColor: "#202225",
-  color: "#fff",
 });
 
-const Sidebar = () => {
+const SideBar = () => {
   return (
     <div>
       <Maincontainer>
@@ -22,4 +20,4 @@ const Sidebar = () => {
   );
 };
 
-export default Sidebar;
+export default SideBar;
