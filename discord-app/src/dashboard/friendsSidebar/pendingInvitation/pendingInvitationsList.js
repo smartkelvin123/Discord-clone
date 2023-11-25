@@ -1,0 +1,18 @@
+import React from "react";
+import { styled } from "@mui/material";
+
+const MainContainer = styled("div")({
+  width: "100%",
+  height: "22%",
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  backgroundColor: "#2F3136",
+  overflow: "auto",
+});
+
+const PendingInvitation = () => {
+  return <MainContainer></MainContainer>;
+};
+
+export default PendingInvitation;
