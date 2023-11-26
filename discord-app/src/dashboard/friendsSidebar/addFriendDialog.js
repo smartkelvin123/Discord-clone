@@ -1,23 +1,26 @@
 import React, { useEffect, useState } from "react";
 import { validateEmail } from "../../shared/utilis/validator";
-import { Dialog } from "@mui/material/Dialog";
+import { Dialog } from "@mui/material";
 import DialogTitle from "@mui/material/DialogTitle";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import { Typography } from "@mui/material";
-import InputWithLabel from "../../shared/components/InputWithLabel";
-import CustomPrimaryButton from "../../shared/components/CustomPrimaryButton";
+import InputWithLabel from "../../shared/component/inputWithLabel";
+
+import CustomPrimaryButton from "../../shared/component/customPrimaryButton";
 
 const AddFriendDialog = ({
   isDialogOpen,
   closeDialogHandler,
-  sendFriendInvatatiion = () => {},
+  sendFriendInvitation = () => {},
 }) => {
-  const [mail, , setMail] = useState("");
+  const [mail, setMail] = useState("");
   const [isFormValid, setIsFormValid] = useState("");
 
-  const sendFriendInvatatiion = () => {};
+  const handleSendInvitation = () => {
+    // send friend request to server
+  };
 
   const handleCloseDialog = () => {
     closeDialogHandler();
@@ -26,7 +29,7 @@ const AddFriendDialog = ({
 
   useEffect(() => {
     setIsFormValid(validateEmail(mail));
-  });
+  }, [mail, setIsFormValid]);
 
   return (
     <div>
