@@ -2,37 +2,38 @@ import React from "react";
 import { styled } from "@mui/material";
 import FriendListItem from "./friendListItem";
 
-const DUMMY_FRIEND = [
+const DUMMY_FRIENDS = [
   {
-    id: "1",
-    userName: "John",
+    id: 1,
+    username: "Mark",
     isOnline: true,
   },
   {
-    id: "2",
-    userName: "Jane",
+    id: 2,
+    username: "Anna",
     isOnline: false,
   },
   {
-    id: "3",
-    userName: "Jack",
+    id: 3,
+    username: "John",
     isOnline: false,
   },
 ];
 
 const MainContainer = styled("div")({
-  width: "100%",
   flexGrow: 1,
+  width: "100%",
 });
 
 const FriendList = () => {
   return (
     <MainContainer>
-      {DUMMY_FRIEND.map((friend) => (
+      {DUMMY_FRIENDS.map((f) => (
         <FriendListItem
-          key={friend.id}
-          UserName={friend.userName}
-          isOnline={friend.isOnline}
+          username={f.username}
+          id={f.id}
+          key={f.id}
+          isOnline={f.isOnline}
         />
       ))}
     </MainContainer>

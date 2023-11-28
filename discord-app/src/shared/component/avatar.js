@@ -2,25 +2,23 @@ import React from "react";
 import { styled } from "@mui/material";
 
 const AvatarPreview = styled("div")({
-  width: "42px",
   height: "42px",
-  borderRadius: "42px",
+  width: "42px",
   backgroundColor: "#5865f2",
+  borderRadius: "42px",
   display: "flex",
-  justifyContent: "center",
   alignItems: "center",
-  color: "white",
+  justifyContent: "center",
   fontSize: "20px",
   fontWeight: "700",
   marginLeft: "5px",
+  color: "white",
 });
 
-const Avatar = ({ userName, large }) => {
+const Avatar = ({ username, large }) => {
   return (
-    <AvatarPreview style={large ? { width: "82px", height: "82px" } : {}}>
-      <AvatarPreview style={large ? { width: "82px", height: "82px" } : {}}>
-        {userName ? userName.substring(0, 2) : ""}
-      </AvatarPreview>
+    <AvatarPreview style={large ? { height: "80px", width: "80px" } : {}}>
+      {username.substring(0, 2)}
     </AvatarPreview>
   );
 };
