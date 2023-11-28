@@ -11,7 +11,7 @@ const DUMMY_FRIENDS = [
   {
     id: 2,
     username: "Anna",
-    isOnline: false,
+    isOnline: true,
   },
   {
     id: 3,
