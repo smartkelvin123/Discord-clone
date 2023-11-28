@@ -1,18 +1,42 @@
 import React from "react";
 import { styled } from "@mui/material";
+import FriendListItem from "./friendListItem";
+
+const DUMMY_FRIEND = [
+  {
+    id: "1",
+    userName: "John",
+    isOnline: true,
+  },
+  {
+    id: "2",
+    userName: "Jane",
+    isOnline: false,
+  },
+  {
+    id: "3",
+    userName: "Jack",
+    isOnline: false,
+  },
+];
 
 const MainContainer = styled("div")({
   width: "100%",
-  // height: "100%",
-  // display: "flex",
-  // flexDirection: "column",
-  // alignItems: "center",
-  // backgroundColor: "#2F3136",
   flexGrow: 1,
 });
 
 const FriendList = () => {
-  return <MainContainer></MainContainer>;
+  return (
+    <MainContainer>
+      {DUMMY_FRIEND.map((friend) => (
+        <FriendListItem
+          key={friend.id}
+          UserName={friend.userName}
+          isOnline={friend.isOnline}
+        />
+      ))}
+    </MainContainer>
+  );
 };
 
 export default FriendList;
