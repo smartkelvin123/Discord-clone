@@ -16,8 +16,8 @@ const Dashboard = () => {
   return (
     <Wrapper>
       <SideBar />
-      <FriendsSideBar />
       <Messager />
+      <FriendsSideBar />
       <AppBar />
     </Wrapper>
   );

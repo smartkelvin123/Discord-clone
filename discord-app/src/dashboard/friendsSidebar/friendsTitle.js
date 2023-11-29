@@ -4,11 +4,10 @@ import { Typography } from "@mui/material";
 const FriendsTitle = ({ title }) => {
   return (
     <Typography
-      variant="h5"
       sx={{
-        color: "white",
         textTransform: "uppercase",
-        fontSize: " 14px",
+        color: "#8e9297",
+        fontSize: "14px",
         marginTop: "10px",
       }}
     >
