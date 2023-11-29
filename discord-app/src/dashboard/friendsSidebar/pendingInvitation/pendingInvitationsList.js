@@ -1,5 +1,6 @@
 import React from "react";
 import { styled } from "@mui/material";
+import PendingInvitationsListItem from "./pendingInvatationsListItem";
 
 const DUMMY_INVITATIONS = [
   {
