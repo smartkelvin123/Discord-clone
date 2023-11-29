@@ -22,6 +22,7 @@ const FriendsSideBar = () => {
         <FriendsTitle title="private messages" />
         <FriendList />
         <FriendsTitle title="invitattion" />
+        <FriendsTitle title="Smart building " />
         <PendingInvitation />
       </Maincontainer>
     </div>
