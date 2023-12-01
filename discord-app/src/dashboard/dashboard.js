@@ -7,6 +7,7 @@ import Messager from "./messager/messager";
 import AppBar from "./appbar/appBar";
 import { logout } from "../shared/utilis/auth";
 import { getAction } from "../store/actions/authAction";
+import { connectWithSocketServer } from "../realTimeCommunication/socketConnection";
 
 const Wrapper = styled("div")(({ theme }) => ({
   width: "100%",
@@ -21,6 +22,7 @@ const Dashboard = ({ setUserDetails }) => {
       logout();
     } else {
       setUserDetails(JSON.parse(userDetails));
+      connectWithSocketServer();
     }
   }, [setUserDetails]);
 
