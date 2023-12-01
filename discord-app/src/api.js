@@ -6,15 +6,31 @@ const apiClient = axios.create({
   timeout: 2000,
 });
 // attach token when login and resgister user
-apiClient.interceptors.response.use((config) => {
-  const userDetails = localStorage.getItem("user");
+// apiClient.interceptors.response.use((config) => {
+//   const userDetails = localStorage.getItem("user");
 
-  if (userDetails) {
-    const { token } = JSON.parse(userDetails);
-    config.headers.Authorization = `Bearer ${token}`;
+//   if (userDetails) {
+//     const { token } = JSON.parse(userDetails);
+//     config.headers.Authorization = `Bearer ${token}`;
+//     return config;
+//   }
+// });
+
+apiClient.interceptors.request.use(
+  (config) => {
+    const userDetails = localStorage.getItem("user");
+
+    if (userDetails) {
+      const { token } = JSON.parse(userDetails);
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+
     return config;
+  },
+  (error) => {
+    return Promise.reject(error);
   }
-});
+);
 
 // public routes
 

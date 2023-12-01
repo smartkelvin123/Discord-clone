@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { styled } from "@mui/material";
-
+import { connect } from "react-redux";
 import SideBar from "./sidebar/sidebar";
 import FriendsSideBar from "./friendsSidebar/friendsSidebar";
 import Messager from "./messager/messager";
 import AppBar from "./appbar/appBar";
+import { logout } from "../shared/utilis/auth";
+import { getAction } from "../store/actions/authAction";
 
 const Wrapper = styled("div")(({ theme }) => ({
   width: "100%",
@@ -12,7 +14,16 @@ const Wrapper = styled("div")(({ theme }) => ({
   display: "flex",
 }));
 
-const Dashboard = () => {
+const Dashboard = ({ setUserDetails }) => {
+  useEffect(() => {
+    const userDetails = localStorage.getItem("user");
+    if (!userDetails) {
+      logout();
+    } else {
+      setUserDetails(JSON.parse(userDetails));
+    }
+  }, [setUserDetails]);
+
   return (
     <Wrapper>
       <SideBar />
@@ -23,4 +34,10 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+const mapActionsToProps = (dispatch) => {
+  return {
+    ...getAction(dispatch),
+  };
+};
+
+export default connect(null, mapActionsToProps)(Dashboard);
