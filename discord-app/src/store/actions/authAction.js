@@ -25,7 +25,6 @@ const login = ({ userDetails, navigate }) => {
     console.log(response);
     if (response.error) {
       dispatch(openAlertMessage(response?.exception.response.data));
-      // handle error
     } else {
       const { userDetails } = response?.data;
       localStorage.setItem("user", JSON.stringify(userDetails));
@@ -41,7 +40,6 @@ const register = ({ userDetails, navigate }) => {
     console.log(response);
     if (response.error) {
       dispatch(openAlertMessage(response?.exception.response.data));
-      // handle error
     } else {
       const { userDetails } = response?.data;
       localStorage.setItem("user", JSON.stringify(userDetails));
