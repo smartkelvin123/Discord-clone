@@ -1,5 +1,6 @@
 const authSocket = require("./middleware/authSocket");
 const colors = require("colors");
+const newConnectionHandler = require("./socketHandlers/newConnectionHandler");
 
 const registerSocketServer = (Server) => {
   const io = require("socket.io")(Server, {
@@ -16,6 +17,8 @@ const registerSocketServer = (Server) => {
   io.on("connection", (socket) => {
     console.log(` Connected: ${"user connected"}`.cyan.underline.bold);
     console.log(socket.id);
+
+    newConnectionHandler(socket, io);
   });
 };
 
