@@ -1,6 +1,7 @@
 const authSocket = require("./middleware/authSocket");
 const colors = require("colors");
 const newConnectionHandler = require("./socketHandlers/newConnectionHandler");
+const disconnectHandler = require("./socketHandlers/disconnectHandler");
 
 const registerSocketServer = (Server) => {
   const io = require("socket.io")(Server, {
@@ -19,6 +20,11 @@ const registerSocketServer = (Server) => {
     console.log(socket.id);
 
     newConnectionHandler(socket, io);
+
+    socket.on("disconnect", () => {
+      console.log(`Disconnected: ${"user disconnected"}`.cyan.underline.bold);
+      disconnectHandler(socket);
+    });
   });
 
   io.on("error", (err) => {
