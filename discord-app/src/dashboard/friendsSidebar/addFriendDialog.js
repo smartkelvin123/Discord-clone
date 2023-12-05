@@ -7,8 +7,9 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import { Typography } from "@mui/material";
 import InputWithLabel from "../../shared/component/inputWithLabel";
-
 import CustomPrimaryButton from "../../shared/component/customPrimaryButton";
+import { connect } from "react-redux";
+import { getActions } from "../../store/actions/friendsAction";
 
 const AddFriendDialog = ({
   isDialogOpen,
@@ -19,7 +20,9 @@ const AddFriendDialog = ({
   const [isFormValid, setIsFormValid] = useState("");
 
   const handleSendInvitation = () => {
-    // send friend request to server
+    sendFriendInvitation({
+      mail: mail,
+    });
   };
 
   const handleCloseDialog = () => {
@@ -68,4 +71,10 @@ const AddFriendDialog = ({
   );
 };
 
-export default AddFriendDialog;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    ...getActions(dispatch),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(AddFriendDialog);
