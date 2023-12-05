@@ -8,6 +8,7 @@ import AppBar from "./appbar/appBar";
 import { logout } from "../shared/utilis/auth";
 import { getAction } from "../store/actions/authAction";
 import { connectWithSocketServer } from "../realTimeCommunication/socketConnection";
+// import connectWithSocketServer from "../realTimeCommunication/socketConnection";
 
 const Wrapper = styled("div")(({ theme }) => ({
   width: "100%",

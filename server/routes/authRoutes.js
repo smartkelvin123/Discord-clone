@@ -16,6 +16,10 @@ const registerSchema = joi.object({
   email: joi.string().email().required(),
 });
 
+const refreshTokenSchema = joi.object({
+  refreshToken: joi.string().required(),
+});
+
 router.post(
   "/register",
   validator.body(registerSchema),
@@ -33,5 +37,12 @@ router.post(
 router.get("/test", auth, (req, res) => {
   res.send("Request passed");
 });
+
+// Refresh token route
+router.post(
+  "/refresh-token",
+  validator.body(refreshTokenSchema),
+  authControllers.controllers.refreshToken
+);
 
 module.exports = router;

@@ -15,10 +15,14 @@ const registerSocketServer = (Server) => {
   });
 
   io.on("connection", (socket) => {
-    console.log(` Connected: ${"user connected"}`.cyan.underline.bold);
+    console.log(`Connected: ${"user connected"}`.cyan.underline.bold);
     console.log(socket.id);
 
     newConnectionHandler(socket, io);
+  });
+
+  io.on("error", (err) => {
+    console.error("Socket.IO error:", err);
   });
 };
 
