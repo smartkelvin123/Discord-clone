@@ -7,6 +7,7 @@ const colors = require("colors");
 const { registerSocketServer } = require("./socketServer");
 const PORT = process.env.PORT || process.env.API_PORT;
 const authRoutes = require("./routes/authRoutes");
+const friendInvitationRoutes = require("./routes/friendInvitationRoutes");
 
 const app = express();
 app.use(cors());
@@ -14,6 +15,7 @@ app.use(express.json());
 
 // register
 app.use("/api/auth", authRoutes);
+app.use("/api/friend-invitation", friendInvitationRoutes);
 
 const server = http.createServer(app);
 registerSocketServer(server);
