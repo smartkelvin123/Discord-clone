@@ -17,7 +17,6 @@ const refreshToken = (req, res) => {
   try {
     const decoded = jwt.verify(refreshToken, config.REFRESH_TOKEN_SECRET);
 
-    // Assuming you have a user object in the decoded token
     const user = decoded.user;
 
     // Generate a new access token

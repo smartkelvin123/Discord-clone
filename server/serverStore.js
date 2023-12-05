@@ -12,10 +12,6 @@ module.exports = {
   addNewConnectedUser,
 };
 
-// const connectedUsers = new Map();
-
-// let io = null;
-
 // const setSocketServerInstance = (ioInstance) => {
 //   io = ioInstance;
 // };

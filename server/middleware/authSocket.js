@@ -18,15 +18,3 @@ const verifyTokenSocket = (socket, next) => {
 };
 
 module.exports = verifyTokenSocket;
-
-//     let token = socket.handshake.auth.token;
-//     if (!token) {
-//         return next(new Error("A token is required for authentication"));
-//     }
-//     try {
-//         token = token.replace(/^Bearer\s+/, "");
-//         const decoded = verify(token, config.JWT_SECRET);
-//         socket = socket;
-//     } catch (error) {
-//         return next(new Error("Invalid Token"));
-// }
