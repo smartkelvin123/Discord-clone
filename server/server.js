@@ -18,19 +18,6 @@ app.use("/api/auth", authRoutes);
 const server = http.createServer(app);
 registerSocketServer(server);
 
-// server.listen(PORT, () => {
-//   console.log(`Server is running on port ${PORT}`.cyan.underline.bold);
-// });
-
-// mongoose
-//   .connect(process.env.MONGO_URI, {})
-//   .then((conn) => {
-//     console.log(
-//       `MongoDB Connected: ${conn.connection.host}`.cyan.underline.bold
-//     );
-//   })
-//   .catch((err) => console.error("Database connection failed", err));
-
 mongoose
   .connect(process.env.MONGO_URI, {})
   .then((conn) => {
