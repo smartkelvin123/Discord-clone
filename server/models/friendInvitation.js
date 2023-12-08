@@ -2,16 +2,16 @@ const mongoose = require("mongoose");
 
 const friendInvitationSchema = new mongoose.Schema({
   senderId: {
-    type: schema.type.objectId,
+    type: mongoose.Schema.Types.ObjectId,
     ref: "User",
   },
   receiverId: {
-    type: schema.type.objectId,
+    type: mongoose.Schema.Types.ObjectId,
     ref: "User",
   },
-  // status : {
-  //     type: schema.type.string
-  // }
+  status: {
+    type: String,
+  },
 });
 
 module.exports = mongoose.model("FriendInvitation", friendInvitationSchema);
