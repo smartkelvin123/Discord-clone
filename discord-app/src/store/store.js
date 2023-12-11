@@ -2,10 +2,12 @@ import { configureStore } from "@reduxjs/toolkit";
 import thunk from "redux-thunk";
 import authReducer from "./reducers/authReducers";
 import alertReducer from "./reducers/alertReducer";
+import friendsReducer from "./reducers/friendsReducers";
 
 const reducer = {
   auth: authReducer,
   alert: alertReducer,
+  friends: friendsReducer,
 };
 
 const store = configureStore({

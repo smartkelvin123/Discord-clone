@@ -14,26 +14,26 @@ const MainContainer = styled("div")({
 });
 
 const PendingInvitation = ({ pendingFriendsInvitation }) => {
+  console.log(pendingFriendsInvitation);
   return (
     <MainContainer>
-      {pendingFriendsInvitation.map((invitation) => (
-        <PendingInvitationsListItem
-          key={invitation._id}
-          id={invitation._id}
-          username={invitation.senderId.username}
-          mail={invitation.senderId.mail}
-        />
-      ))}
+      {pendingFriendsInvitation &&
+        pendingFriendsInvitation.map((invitation) => (
+          <PendingInvitationsListItem
+            key={invitation._id}
+            id={invitation._id}
+            username={invitation.senderId.username}
+            mail={invitation.senderId.mail}
+          />
+        ))}
     </MainContainer>
   );
 };
 
-const mapStoreStateToPropsc = ({ friends }) => {
+const mapStoreStateToProps = ({ friends }) => {
   return {
     ...friends,
   };
 };
 
-export default connect(mapStoreStateToPropsc)(PendingInvitation);
-
-// export default PendingInvitation;
+export default connect(mapStoreStateToProps)(PendingInvitation);
