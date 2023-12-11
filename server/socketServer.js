@@ -3,6 +3,8 @@ const colors = require("colors");
 const newConnectionHandler = require("./socketHandlers/newConnectionHandler");
 const disconnectHandler = require("./socketHandlers/disconnectHandler");
 
+const serverStore = require("./serverStore");
+
 const registerSocketServer = (Server) => {
   const io = require("socket.io")(Server, {
     cors: {
@@ -10,6 +12,8 @@ const registerSocketServer = (Server) => {
       methods: ["GET", "POST"],
     },
   });
+
+  serverStore.setSocketServerInstance(io);
 
   io.use((socket, next) => {
     authSocket(socket, next);
