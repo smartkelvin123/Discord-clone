@@ -11,14 +11,15 @@ const MainContainer = styled("div")({
 const FriendList = ({ friends }) => {
   return (
     <MainContainer>
-      {friends.map((f) => (
-        <FriendListItem
-          username={f.username}
-          id={f.id}
-          key={f.id}
-          isOnline={f.isOnline}
-        />
-      ))}
+      {friends &&
+        friends.map((f) => (
+          <FriendListItem
+            username={f.username}
+            id={f.id}
+            key={f.id}
+            isOnline={f.isOnline}
+          />
+        ))}
     </MainContainer>
   );
 };
