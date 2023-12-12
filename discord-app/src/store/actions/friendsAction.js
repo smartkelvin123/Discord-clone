@@ -55,3 +55,10 @@ const rejectFriendInvation = (data) => {
     }
   };
 };
+
+export const setFriends = (friends) => {
+  return {
+    type: friendsActions.SET_FRIENDS,
+    payload: friends,
+  };
+};
